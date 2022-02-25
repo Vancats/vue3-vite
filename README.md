@@ -1,30 +1,7 @@
-<!--
- * @Author: Lqf
- * @Date: 2021-10-27 16:06:35
- * @LastEditors: Lqf
- * @LastEditTime: 2021-11-08 14:36:39
- * @Description: 我添加了修改
--->
-# Vite
-  - alias
-  - module style
-  - sass / postcss
-  - tsconfig
-  - proxy
-  - mock
-  - eslint
-  - babel
-  - jest
-  - plugins
+# Vue 3 + Vite
 
-# Vue3
-  - style + v-bind
-  - i18n
-  - favicon/storage reactive packaging
-  - VueUse npm i @vueuse/core
-  - animate transition transition-group transition in router
-  - lvuex
+This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-# demo
-  - Rate
-  - TodoList 
+## Recommended IDE Setup
+
+- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
