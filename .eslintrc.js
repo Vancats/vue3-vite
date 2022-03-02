@@ -2,7 +2,7 @@
  * @Author: Lqf
  * @Date: 2022-02-25 15:30:47
  * @LastEditors: Lqf
- * @LastEditTime: 2022-02-25 16:32:22
+ * @LastEditTime: 2022-03-02 18:03:43
  * @Description: 我添加了修改
  */
 module.exports = {
@@ -20,6 +20,7 @@ module.exports = {
     // "@vue/prettier/@typescript-eslint",
   ],
   parserOptions: {
+    sourceType: "module",
     ecmaVersion: 2021,
   },
   plugins: [],
@@ -27,5 +28,7 @@ module.exports = {
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "off",
     semi: ["off", "never"],
+    "vue/comment-directive": "off",
+    "vue/html-self-closing": "off",
   },
 }
