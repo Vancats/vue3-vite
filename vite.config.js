@@ -2,7 +2,7 @@
  * @Author: Lqf
  * @Date: 2022-02-25 10:38:50
  * @LastEditors: Lqf
- * @LastEditTime: 2022-02-25 17:12:51
+ * @LastEditTime: 2022-03-03 10:11:15
  * @Description: 我添加了修改
  */
 import { defineConfig } from 'vite'
@@ -24,8 +24,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve('./src'),
-      'comps': resolve('./src/components')
-    },
+      comps: resolve('./src/components')
+    }
   },
   plugins: [vue(), viteMockServe({})]
 })

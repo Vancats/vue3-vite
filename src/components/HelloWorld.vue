@@ -2,7 +2,7 @@
  * @Author: Lqf
  * @Date: 2022-02-25 10:38:50
  * @LastEditors: Lqf
- * @LastEditTime: 2022-02-25 16:49:10
+ * @LastEditTime: 2022-03-03 10:55:17
  * @Description: 我添加了修改
 -->
 
@@ -40,10 +40,7 @@ const courses = reactive<Course[]>([{ id: 1, name: '' }])
   <div :class="$style.logo" />
   <div :class="appModule.logo" />
   <!-- autoprefixer -->
-  <input
-    type="text"
-    placeholder="输入用户名"
-  />
+  <input type="text" placeholder="输入用户名" />
 </template>
 
 <style lang="less" scoped module>
