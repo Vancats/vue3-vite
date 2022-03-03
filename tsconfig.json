@@ -5,9 +5,9 @@
     "strict": true,
     "jsx": "preserve",
     "moduleResolution": "node",
+    "noImplicitAny": false,
     "types": [
-      "vite/client",
-      "jest"
+      "vite/client"
     ],
     "isolatedModules": true,
     "allowJs": true

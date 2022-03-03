@@ -1,10 +1,11 @@
 # learn-vue3-vite
 
-## 配置
-
-- css: module style && less && postcss(autoprefixer)
+### 配置
 - alias && proxy
-- mock mockjs -s/vite-plugin-mock
 - tsconfig
 - eslint && babel
-- jest
+
+**HelloWorld**
+- css: module style && less && postcss(autoprefixer)
+- mock mockjs -s/vite-plugin-mock
+- i18n

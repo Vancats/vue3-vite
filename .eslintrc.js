@@ -2,7 +2,7 @@
  * @Author: Lqf
  * @Date: 2022-02-25 15:30:47
  * @LastEditors: Lqf
- * @LastEditTime: 2022-03-03 10:48:31
+ * @LastEditTime: 2022-03-03 18:49:24
  * @Description: 我添加了修改
  */
 module.exports = {
@@ -10,16 +10,16 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true
+    node: true,
+    'vue/setup-compiler-macros': true
   },
   extends: [
     'plugin:vue/vue3-recommended',
     'eslint:recommended',
-    '@vue/typescript/recommended',
     '@vue/prettier',
-    '@vue/prettier/@typescript-eslint'
+    '@vue/typescript/recommended'
+    // '@vue/prettier/@typescript-eslint'
   ],
-  // parser: 'babel-eslint',
   parserOptions: {
     sourceType: 'module',
     ecmaVersion: 2021
@@ -28,7 +28,7 @@ module.exports = {
   rules: {
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
-    semi: ['off', 'never'],
+    '@typescript-eslint/no-explicit-any': 'off',
     'vue/comment-directive': 'off',
     'vue/html-self-closing': 'off',
     'prettier/prettier': [
