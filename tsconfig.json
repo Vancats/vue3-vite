@@ -17,6 +17,7 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "tests/unit"
+    "tests/unit",
+    "temp.ts"
   ]
 }
