@@ -1,16 +1,13 @@
 <!--
- * @Author: Lqf
- * @Date: 2022-02-25 10:38:50
- * @LastEditors: Lqf
- * @LastEditTime: 2022-03-03 19:33:28
- * @Description
+ * @Date: 2022-03-10 23:57:57
+ * @LastEditTime: 2022-03-11 19:05:21
+ * @Description:
  *  css module
  *  autoprefixer
  *  webServer & mock
  *  TS support
  *  i18n
 -->
-
 <template>
   <h1>{{ msg }}</h1>
   <!-- css module -->
