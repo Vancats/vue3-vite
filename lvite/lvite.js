@@ -1,11 +1,3 @@
-/*
- * @Author: Lqf
- * @Date: 2022-03-03 19:57:58
- * @LastEditors: Lqf
- * @LastEditTime: 2022-03-04 15:58:46
- * @Description: 这是一个 node 服务器，相当于 devServer
- */
-
 const Koa = require('koa')
 const fs = require('fs')
 const path = require('path')

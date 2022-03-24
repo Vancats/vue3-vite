@@ -1,11 +1,3 @@
-/*
- * @Author: Lqf
- * @Date: 2022-03-04 15:07:05
- * @LastEditors: Lqf
- * @LastEditTime: 2022-03-04 17:14:58
- * @Description: 我添加了修改
- */
-
 const fs = require('fs')
 const path = require('path')
 const Koa = require('koa')

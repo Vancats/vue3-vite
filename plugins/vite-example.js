@@ -1,11 +1,3 @@
-/*
- * @Author: Lqf
- * @Date: 2022-03-03 17:01:35
- * @LastEditors: Lqf
- * @LastEditTime: 2022-03-03 17:48:29
- * @Description: 我添加了修改
- */
-
 export default function (options) {
   return {
     name: 'example',

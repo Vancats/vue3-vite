@@ -1,10 +1,3 @@
-/*
- * @Author: Lqf
- * @Date: 2022-02-25 15:30:47
- * @LastEditors: Lqf
- * @LastEditTime: 2022-03-03 18:49:24
- * @Description: 我添加了修改
- */
 module.exports = {
   root: true,
   env: {
@@ -31,6 +24,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     'vue/comment-directive': 'off',
     'vue/html-self-closing': 'off',
+    'vue/multi-word-component-names': 'off',
     'prettier/prettier': [
       'error',
       {

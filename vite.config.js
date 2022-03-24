@@ -1,10 +1,3 @@
-/*
- * @Author: Lqf
- * @Date: 2022-02-25 10:38:50
- * @LastEditors: Lqf
- * @LastEditTime: 2022-03-03 19:34:09
- * @Description: 我添加了修改
- */
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
