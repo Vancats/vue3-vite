@@ -1,9 +1,7 @@
 <template>
-  <hello-world msg="Hello Vue3" />
+  <h1>首页</h1>
 </template>
 
-<script setup lang="ts">
-import HelloWorld from 'comps/HelloWorld.vue'
-</script>
+<script setup lang="ts"></script>
 
 <style scoped></style>

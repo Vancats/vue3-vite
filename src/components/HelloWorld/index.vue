@@ -24,9 +24,8 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
-import appModule from '../styles/App.module.less'
-import { getCurrentInstance, computed, ref } from 'vue'
+import { getCurrentInstance, computed, ref, reactive } from 'vue'
+import appModule from '../../styles/App.module.less'
 // import example from 'my-example'
 // console.log('example: ', example)
 
@@ -74,6 +73,7 @@ const { locale, t } = useI18n()
   height: 20px;
   background-image: url(@/assets/logo.png);
   background-size: contain;
+  display: inline-block;
 }
 
 // autoprefixer
