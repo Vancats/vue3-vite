@@ -26,8 +26,9 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import appModule from '../styles/App.module.less'
-import example from 'my-example'
-console.log('example: ', example)
+import { getCurrentInstance, computed, ref } from 'vue'
+// import example from 'my-example'
+// console.log('example: ', example)
 
 defineProps({
   msg: {
@@ -52,7 +53,6 @@ type Course = {
 const courses = reactive<Course[]>([{ id: 1, name: '' }])
 
 // i18n
-import { getCurrentInstance, computed, ref } from 'vue'
 const ins: any = getCurrentInstance()
 
 function useI18n() {

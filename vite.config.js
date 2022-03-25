@@ -1,9 +1,13 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { resolve } from 'path'
+import path from 'path'
 import { viteMockServe } from 'vite-plugin-mock'
 import myExample from './plugins/vite-example'
-import vitei18n from './plugins/vite-i18n'
+import viteI18n from './plugins/vite-i18n'
+
+function resolve(dir) {
+  return path.resolve(__dirname, dir)
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -19,10 +23,11 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve('./src'),
-      comps: resolve('./src/components')
+      comps: resolve('./src/components'),
+      utils: resolve('./src/utils')
     }
   },
-  plugins: [vue(), viteMockServe({}), myExample(), vitei18n]
+  plugins: [vue(), viteMockServe({}), myExample(), viteI18n]
 })
 
 // "gitHooks": {

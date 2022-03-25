@@ -1,9 +1,9 @@
 <template>
-  <HelloWorld msg="Hello Vue3" />
+  <todo-list />
 </template>
 
 <script setup lang="ts">
-import HelloWorld from 'comps/HelloWorld.vue'
+import TodoList from 'comps/TodoList/index.vue'
 </script>
 
 <style lang="less" scoped></style>
