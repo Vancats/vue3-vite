@@ -1,15 +1,22 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "esnext",
+    "module": "esnext", // vite 模块加载必须使用 module
+    "moduleResolution": "node", // 通过 node 方式来解析模块
     "strict": true,
-    "jsx": "preserve",
-    "moduleResolution": "node",
-    "noImplicitAny": false,
+    "jsx": "preserve", // 配置成不编译 jsx 语法；如果不配置默认遵循 React 规范，与 Vue 的不符
+    "sourceMap": true,
+    "resolveJsonModule": true, // 是否可以直接 import JSON
+    "esModuleInterop": true, // 方便引入 可以省略括号内容 import (* as )React form 'React'
+    "lib": [
+      "esnext",
+      "DOM"
+    ], // 支持使用哪些内置的 module
+    "isolatedModules": false, // 检测模块
     "types": [
       "vite/client"
-    ],
-    "isolatedModules": true,
+    ], // import.meta
+    "noImplicitAny": false,
     "allowJs": true
   },
   "include": [

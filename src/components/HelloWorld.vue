@@ -1,16 +1,13 @@
 <!--
- * @Author: Lqf
- * @Date: 2022-02-25 10:38:50
- * @LastEditors: Lqf
- * @LastEditTime: 2022-03-03 19:33:28
- * @Description
+ * @Date: 2022-03-10 23:57:57
+ * @LastEditTime: 2022-03-11 22:01:51
+ * @Description:
  *  css module
  *  autoprefixer
  *  webServer & mock
  *  TS support
  *  i18n
 -->
-
 <template>
   <h1>{{ msg }}</h1>
   <!-- css module -->
@@ -30,8 +27,9 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import appModule from '../styles/App.module.less'
-import example from 'my-example'
-console.log('example: ', example)
+import { getCurrentInstance, computed, ref } from 'vue'
+// import example from 'my-example'
+// console.log('example: ', example)
 
 defineProps({
   msg: {
@@ -56,7 +54,6 @@ type Course = {
 const courses = reactive<Course[]>([{ id: 1, name: '' }])
 
 // i18n
-import { getCurrentInstance, computed, ref } from 'vue'
 const ins: any = getCurrentInstance()
 
 function useI18n() {
