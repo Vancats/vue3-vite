@@ -1,10 +1,6 @@
 <!--
  * @Date: 2022-03-10 23:57:57
- * @LastEditTime: 2022-03-11 22:01:51
  * @Description:
- *  css module
- *  autoprefixer
- *  webServer & mock
  *  TS support
  *  i18n
 -->
