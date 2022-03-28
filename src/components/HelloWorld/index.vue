@@ -6,7 +6,6 @@
  *  TS support
  *  i18n
 -->
-
 <template>
   <h1>{{ msg }}</h1>
   <!-- css module -->
