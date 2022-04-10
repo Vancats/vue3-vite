@@ -1,35 +1,28 @@
-/*
- * @Author: Lqf
- * @Date: 2021-10-27 16:06:35
- * @LastEditors: Lqf
- * @LastEditTime: 2021-10-28 20:10:54
- * @Description: 我添加了修改
- */
-import { defineConfig } from "vite"
-import vue from "@vitejs/plugin-vue"
-import vueJsx from "@vitejs/plugin-vue-jsx"
-import { resolve } from "path"
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
-import { viteMockServe } from "vite-plugin-mock"
+import { viteMockServe } from 'vite-plugin-mock'
 import virtualModule from './plugins/vite-plugin-eg'
-import i18n from "./plugins/vite-plugin-i18n"
+import i18n from './plugins/vite-plugin-i18n'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
     proxy: {
-      "/api": {
-        target: "http://jsonplaceholder.typicode.com",
+      '/api': {
+        target: 'http://jsonplaceholder.typicode.com',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },
 
   resolve: {
     alias: {
-      "@": resolve("./src"),
-      comps: resolve("./src/components"),
+      '@': resolve('./src'),
+      'comps': resolve('./src/components'),
     },
   },
   plugins: [vue(), vueJsx(), viteMockServe({}), virtualModule(), i18n],

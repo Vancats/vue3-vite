@@ -2,11 +2,11 @@ import { inject, reactive } from 'vue'
 
 const STORE_KEY = '__store__'
 
-function useStore () {
+function useStore() {
   return inject(STORE_KEY)
 }
 
-function createStore (options) {
+function createStore(options) {
   return new Store(options)
 }
 
@@ -14,7 +14,7 @@ class Store {
   constructor(options) {
     this.$options = options
     this._state = reactive({
-      data: typeof options.state === 'function' ? options.state() : options.state
+      data: typeof options.state === 'function' ? options.state() : options.state,
     })
     this._mutations = options.mutations
     this._actions = options.actions
@@ -24,12 +24,12 @@ class Store {
         get: () => {
           return options.getters[key](this.state)
         },
-        enumerable: true
+        enumerable: true,
       })
     })
   }
 
-  get state () {
+  get state() {
     return this._state.data
   }
 
@@ -43,7 +43,7 @@ class Store {
     entry && entry(this, payload)
   }
 
-  install (app) {
+  install(app) {
     app.provide(STORE_KEY, this)
   }
 }

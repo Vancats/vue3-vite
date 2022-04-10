@@ -1,87 +1,47 @@
-<!--
- * @Author: Lqf
- * @Date: 2021-10-29 09:20:09
- * @LastEditors: Lqf
- * @LastEditTime: 2021-11-05 15:13:26
- * @Description: 我添加了修改
--->
+<script setup>
+import { useTodos } from './todos'
+import { useMouse } from '@/utils/mouse'
+
+const { title, active, all, allDone, todos, addTodo, clear, showModal, removeTodo, animate, beforeEnter, enter, afterEnter } = useTodos()
+const { x, y } = useMouse()
+
+</script>
+
 <template>
   <div>
-    <input
-      type="text"
-      v-model="title"
-      @keydown.enter="addTodo"
-    />
-    <button
-      v-if="active < all"
-      @click="clear"
-    >清理</button>
+    <input v-model="title" type="text" @keydown.enter="addTodo" />
+    <button v-if="active < all" @click="clear">清理</button>
     <ul v-if="todos.length">
-      <transition-group
-        name="flip-list"
-        tag="ul"
-      >
-        <li
-          v-for="(todo, index) in todos"
-          :key="todo.title"
-          style="list-style: none"
-        >
-          <input
-            type="checkbox"
-            v-model="todo.done"
-          />
+      <transition-group name="flip-list" tag="ul">
+        <li v-for="(todo, index) in todos" :key="todo.title" style="list-style: none">
+          <input v-model="todo.done" type="checkbox" />
           <span :class="{ done: todo.done }">{{ todo.title }}</span>
-          <span @click="removeTodo($event,index)"> ❌ </span>
+          <span @click="removeTodo($event,index)">❌</span>
         </li>
       </transition-group>
     </ul>
     <div v-else>暂无数据</div>
     <div>
-      全选<input
-        type="checkbox"
-        v-model="allDone"
-      />
+      全选
+      <input v-model="allDone" type="checkbox" />
       <span>{{ active }} / {{ all }}</span>
     </div>
     {{ x }} {{ y }}
   </div>
   <transition name="modal">
-    <div
-      class="info-wrapper"
-      v-if="showModal"
-    >
-      <div class="info">
-        请输入值
-      </div>
+    <div v-if="showModal" class="info-wrapper">
+      <div class="info">请输入值</div>
     </div>
   </transition>
-  <span class="dustbin"> 🗑 </span>
+  <span class="dustbin">🗑</span>
   <div class="animate-wrap">
-    <transition
-      @before-enter="beforeEnter"
-      @enter="enter"
-      @after-enter="afterEnter"
-    >
-      <div
-        class="animate"
-        v-show="animate.show"
-        x
-      >📋</div>
+    <transition @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter">
+      <div v-show="animate.show" class="animate" x>📋</div>
     </transition>
   </div>
 </template>
 
-<script setup>
-import { useTodos } from './todos'
-import { useMouse } from '@/utils/mouse'
-
-let { title, active, all, allDone, todos, addTodo, clear, showModal, removeTodo, animate, beforeEnter, enter, afterEnter } = useTodos()
-let { x, y } = useMouse()
-
-
-</script>
-
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .done {
   text-decoration: line-through;
 }

@@ -1,10 +1,3 @@
-<!--
- * @Author: Lqf
- * @Date: 2021-10-27 16:06:35
- * @LastEditors: Lqf
- * @LastEditTime: 2021-11-08 14:36:39
- * @Description: 我添加了修改
--->
 # Vite
   - alias
   - module style
@@ -27,4 +20,4 @@
 
 # demo
   - Rate
-  - TodoList 
+  - TodoList

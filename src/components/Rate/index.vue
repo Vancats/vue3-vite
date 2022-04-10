@@ -1,81 +1,65 @@
 <!--
  * @Author: Lqf
  * @Date: 2021-11-03 10:54:05
- * @LastEditors: Lqf
- * @LastEditTime: 2021-11-03 15:14:47
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-04-10 16:16:02
  * @Description: 我添加了修改
 -->
-<template>
-  <div :style="fontStyle">
-    <slot></slot>
-    <div
-      class="rate"
-      @mouseout="mouseOut"
-    >
-      <span
-        v-for="num in 5"
-        :key="num"
-        class="solid"
-        @mouseover="mouseOver(num)"
-      >☆</span>
-      <span
-        class="hollow"
-        :style="fontWidth"
-      >
-        <span
-          v-for="num in 5"
-          :key="num"
-          @click="onRate(num)"
-          @mouseover="mouseOver(num)"
-        >★</span>
-      </span>
-    </div>
-  </div>
-</template>
-
 <script setup>
-import { defineProps, defineEmits, computed, ref } from 'vue'
+import { computed, ref } from 'vue'
 
-let props = defineProps({
+const props = defineProps({
   // value: Number,
   modelValue: Number,
-  theme: { type: String, default: 'orange' }
+  theme: { type: String, default: 'orange' },
 })
 
 // 修改主题颜色
 const themeObj = {
-  'black': '#00',
-  'white': '#fff',
-  'red': '#f5222d',
-  'orange': '#fa541c',
-  'yellow': '#fadb14',
-  'green': '#73d13d',
-  'blue': '#40a9ff',
+  black: '#00',
+  white: '#fff',
+  red: '#f5222d',
+  orange: '#fa541c',
+  yellow: '#fadb14',
+  green: '#73d13d',
+  blue: '#40a9ff',
 }
-let fontStyle = computed(() => `color: ${themeObj[props.theme]}`)
+const fontStyle = computed(() => `color: ${themeObj[props.theme]}`)
 
 // 评分宽度
-let width = ref(props.value)
-function mouseOver (i) {
+const width = ref(props.value)
+function mouseOver(i) {
   width.value = i
 }
-function mouseOut () {
+function mouseOut() {
   width.value = props.modelValue
 }
 width.value = props.modelValue
 const fontWidth = computed(() => `width: ${width.value * 13.06}px`)
 
 // 事件派发
-let emits = defineEmits(['update:modelValue'])
+const emits = defineEmits(['update:modelValue'])
 // let emits = defineEmits('update-rate')
-function onRate (num) {
+function onRate(num) {
   // emits('update-rate', num)
   emits('update:modelValue', num)
 }
 
 </script>
 
-<style lang="scss" scoped>
+<template>
+  <div :style="fontStyle">
+    <slot />
+    <div class="rate" @mouseout="mouseOut">
+      <span v-for="num in 5" :key="num" class="solid" @mouseover="mouseOver(num)">☆</span>
+      <span class="hollow" :style="fontWidth">
+        <span v-for="num in 5" :key="num" @click="onRate(num)" @mouseover="mouseOver(num)">★</span>
+      </span>
+    </div>
+  </div>
+</template>
+
+<style lang="less" scoped>
 .rate {
   position: relative;
   display: inline-block;

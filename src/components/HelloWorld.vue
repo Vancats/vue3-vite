@@ -1,58 +1,17 @@
-<template>
-  <p>{{ msg }}</p>
-  <span>{{ state.count }}</span>
-  <button
-    type="button"
-    @click="add"
-  >add</button>
-
-  <div style="display: flex; justify-content: center">
-    <div :class="classes.logo"></div>
-    <div :class="$style.logo"></div>
-    <a href="">color</a>
-  </div>
-  <input
-    type="text"
-    placeholder="请输入"
-  />
-  <li
-    v-for="(c, i) in courses"
-    :key="i"
-    style="list-style: none"
-  >
-    {{ c.name }}
-  </li>
-
-  <label>{{ t('language') }}</label>
-  <select v-model="locale">
-    <option value="en">en</option>
-    <option value="zh">zh</option>
-  </select>
-  <p>{{ t('hello') }}</p>
-
-  <button @click="loading">change favicon</button>
-  <button @click="toggle">change fullscreen</button>asyncAddNub
-  <button @click="addNub">{{ nub }} - {{doubleNub}}</button>
-  <button @click="asyncAddNub">{{ nub }} - {{doubleNub}}</button>
-</template>
-
-
-
-
 <script setup lang="ts">
-import { reactive, getCurrentInstance, computed, ref } from 'vue'
-import useFavicon from '../utils/favicon'
+import { computed, getCurrentInstance, reactive, ref } from 'vue'
 import { useFullscreen } from '@vueuse/core'
 import { useStore } from 'vuex'
+import useFavicon from '../utils/favicon'
 // import { useStore } from '../store/lvuex'
 /**
  * @一
  * @description: module style使用 配合 classes.logo
  */
-import classes from '../App.module.css' //
+import classes from '../styles/App.module.css'
 
 defineProps({
-  msg: String
+  msg: String,
 })
 
 /**
@@ -72,23 +31,23 @@ function add() {
  * @description: mock请求
  */
 fetch('/api/users')
-  .then((res) => res.json())
-  .then((users) => console.log(users))
+  .then(res => res.json())
+  .then(users => console.log(users))
 fetch('/api-dev/users')
-  .then((res) => res.json())
-  .then((users) => console.log(users))
+  .then(res => res.json())
+  .then(users => console.log(users))
 
 /**
  * @四
  * @description: typescript支持
  */
-type Course = {
+interface Course {
   id: number
   name: string
 }
 const courses = reactive<Course[]>([
   { id: 1, name: 'lqf' },
-  { id: 2, name: 'hello' }
+  { id: 2, name: 'hello' },
 ])
 
 /**
@@ -133,9 +92,9 @@ const { isFullscreen, enter, exit, toggle } = useFullscreen()
  * @八
  * @description: store
  */
-let store = useStore()
-let nub = computed(() => store.state.nub)
-let doubleNub = computed(() => store.getters.doubleNub)
+const store = useStore()
+const nub = computed(() => store.state.nub)
+const doubleNub = computed(() => store.getters.doubleNub)
 
 function addNub() {
   store.commit('addNub')
@@ -144,6 +103,32 @@ function asyncAddNub() {
   store.dispatch('asyncAdd')
 }
 </script>
+
+<template>
+  <p>{{ msg }}</p>
+  <span>{{ state.count }}</span>
+  <button type="button" @click="add">add</button>
+
+  <div style="display: flex; justify-content: center">
+    <div :class="classes.logo" />
+    <div :class="$style.logo" />
+    <a href>color</a>
+  </div>
+  <input type="text" placeholder="请输入" />
+  <li v-for="(c, i) in courses" :key="i" style="list-style: none">{{ c.name }}</li>
+
+  <label>{{ t('language') }}</label>
+  <select v-model="locale">
+    <option value="en">en</option>
+    <option value="zh">zh</option>
+  </select>
+  <p>{{ t('hello') }}</p>
+
+  <button @click="loading">change favicon</button>
+  <button @click="toggle">change fullscreen</button>asyncAddNub
+  <button @click="addNub">{{ nub }} - {{ doubleNub }}</button>
+  <button @click="asyncAddNub">{{ nub }} - {{ doubleNub }}</button>
+</template>
 
 <i18n>
 {
@@ -168,10 +153,10 @@ function asyncAddNub() {
 }
 </style>
 <!-- scss install后直接使用 -->
-<style scoped lang="scss">
-$link-color: rgb(192, 183, 63);
+<style scoped lang="less">
+@link-color: rgb(192, 183, 63);
 a {
-  color: $link-color;
+  color: @link-color;
 }
 ::placeholder {
   color: blue;
