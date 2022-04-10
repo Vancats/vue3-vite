@@ -4,34 +4,17 @@
  *  TS support
  *  i18n
 -->
-<template>
-  <h1>{{ msg }}</h1>
-  <!-- css module -->
-  <div :class="$style.logo" />
-  <div :class="appModule.logo" />
-  <!-- autoprefixer -->
-  <input type="text" placeholder="输入用户名" />
-
-  <label>{{ t('language') }}</label>
-  <select v-model="locale">
-    <option value="en">en</option>
-    <option value="zh">zh</option>
-  </select>
-  <p>{{ t('hello') }}</p>
-</template>
-
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { computed, getCurrentInstance, reactive, ref } from 'vue'
 import appModule from '../styles/App.module.less'
-import { getCurrentInstance, computed, ref } from 'vue'
 // import example from 'my-example'
 // console.log('example: ', example)
 
 defineProps({
   msg: {
     type: String,
-    default: ''
-  }
+    default: '',
+  },
 })
 
 // webServer & mock
@@ -43,7 +26,7 @@ fetch('/api-dev/users')
   .then(users => console.log(users, 'mock'))
 
 // TS 支持
-type Course = {
+interface Course {
   id: number
   name: string
 }
@@ -61,9 +44,28 @@ function useI18n() {
   }
   return { locale, t }
 }
-
 const { locale, t } = useI18n()
 </script>
+
+<template>
+  <h1>{{ msg }}</h1>
+  <!-- css module -->
+  <div :class="$style.logo" />
+  <div :class="appModule.logo" />
+  <!-- autoprefixer -->
+  <input type="text" placeholder="输入用户名">
+
+  <label>{{ t("language") }}</label>
+  <select v-model="locale">
+    <option value="en">
+      en
+    </option>
+    <option value="zh">
+      zh
+    </option>
+  </select>
+  <p>{{ t("hello") }}</p>
+</template>
 
 <style lang="less" scoped module>
 .logo {

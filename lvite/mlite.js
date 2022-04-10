@@ -1,11 +1,3 @@
-/*
- * @Author: Lqf
- * @Date: 2022-03-04 15:07:05
- * @LastEditors: Lqf
- * @LastEditTime: 2022-03-04 17:14:58
- * @Description: 我添加了修改
- */
-
 const fs = require('fs')
 const path = require('path')
 const Koa = require('koa')
@@ -24,7 +16,8 @@ app.use(ctx => {
     const content = fs.readFileSync(filePath, 'utf-8')
     // 返回
     ctx.body = content
-  } else if (url.endsWith('.js')) {
+  }
+  else if (url.endsWith('.js')) {
     ctx.type = 'text/javascript'
     // 文件路径
     const filePath = path.join(__dirname, url)
@@ -32,7 +25,8 @@ app.use(ctx => {
     const content = rewriteImport(fs.readFileSync(filePath, 'utf-8'))
     // 返回
     ctx.body = content
-  } else if (url.startsWith('/@modules/')) {
+  }
+  else if (url.startsWith('/@modules/')) {
     ctx.type = 'text/javascript'
     // 转换回模块名称
     const moduleName = url.replace('/@modules/', '')
@@ -46,7 +40,8 @@ app.use(ctx => {
     const content = rewriteImport(fs.readFileSync(filePath, 'utf-8'))
     // 返回
     ctx.body = content
-  } else if (url.indexOf('.vue') > -1) {
+  }
+  else if (url.includes('.vue')) {
     ctx.type = 'text/javascript'
     // 文件路径
     const filePath = path.join(__dirname, url.split('?')[0])
@@ -57,7 +52,7 @@ app.use(ctx => {
       // 获取其 script 的内容
       const scriptContent = content.descriptor.script.content
       // 默认导出修改为一个可赋值的对象
-      const script = scriptContent.replace(`export default `, `const __script = `)
+      const script = scriptContent.replace('export default ', 'const __script = ')
       ctx.body = `
         ${rewriteImport(script)}
         // template 内容解析转换交由另外一个对象处理
@@ -65,7 +60,8 @@ app.use(ctx => {
         __script.render = __render
         export default __script
       `
-    } else {
+    }
+    else {
       // 这里是 vue 中的其他模块 如 template，style，i18n 等
       // 这里写的是 template 的转换
       const tpl = content.descriptor.template.content
@@ -73,18 +69,18 @@ app.use(ctx => {
       const res = compilerDOM.compile(tpl, { mode: 'module' }).code
       ctx.body = rewriteImport(res)
     }
-  } else if (url.endsWith('.png')) {
-    ctx.body = fs.readFileSync('src' + url)
+  }
+  else if (url.endsWith('.png')) {
+    ctx.body = fs.readFileSync(`src${url}`)
   }
 })
 
 function rewriteImport(content) {
   return content.replace(/ from ['"](.*)['"]/g, (s0, s1) => {
-    if (s1.startsWith('.') || s1.startsWith('/')) {
+    if (s1.startsWith('.') || s1.startsWith('/'))
       return s0
-    } else {
+    else
       return ` from '/@modules/${s1}'`
-    }
   })
 }
 

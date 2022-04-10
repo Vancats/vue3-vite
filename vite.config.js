@@ -1,6 +1,6 @@
+import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { resolve } from 'path'
 import { viteMockServe } from 'vite-plugin-mock'
 import myExample from './plugins/vite-example'
 import viteI18n from './plugins/vite-i18n'
@@ -12,17 +12,17 @@ export default defineConfig({
       '/api': {
         target: 'http://jsonplaceholder.typicode.com',
         changeOrigin: true,
-        rewrite: path => path.replace(/^\/api/, '')
-      }
-    }
+        rewrite: path => path.replace(/^\/api/, ''),
+      },
+    },
   },
   resolve: {
     alias: {
       '@': resolve('./src'),
-      comps: resolve('./src/components')
-    }
+      'comps': resolve('./src/components'),
+    },
   },
-  plugins: [vue(), viteMockServe({}), myExample(), viteI18n]
+  plugins: [vue(), viteMockServe({}), myExample(), viteI18n],
 })
 
 // "gitHooks": {

@@ -1,12 +1,12 @@
 /*
  * @Author: Lqf
  * @Date: 2022-03-03 17:01:35
- * @LastEditors: Lqf
- * @LastEditTime: 2022-03-03 17:48:29
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-04-10 13:01:02
  * @Description: 我添加了修改
  */
 
-export default function (options) {
+export default function () {
   return {
     name: 'example',
     resolveId(source) {
@@ -18,10 +18,10 @@ export default function (options) {
       return null
     },
     load(id) {
-      if (id === 'my-example') {
-        return `export default "this is my example"`
-      }
+      if (id === 'my-example')
+        return 'export default "this is my example"'
+
       return null
-    }
+    },
   }
 }
