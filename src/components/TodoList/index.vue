@@ -1,3 +1,25 @@
+<script setup lang="ts">
+import { useFullscreen } from '@vueuse/core'
+import { useMouse } from '../../utils/useMouse'
+import { useFavicon } from '../../utils/useFavicon'
+import { useTodo } from './useTodo'
+
+// 表单
+const { text, todos, addTodo, clear, active, all, allDone } = useTodo()
+
+// 鼠标事件 + 颜色转换
+const { x, y, color } = useMouse()
+
+// 页面图标事件
+const { favicon, reset } = useFavicon()
+function changeIcon() {
+  favicon.value = './company.png'
+}
+
+// 全屏事件
+const { isFullscreen, enter, exit, toggle } = useFullscreen()
+</script>
+
 <template>
   <div>
     <h1>TodoList</h1>
@@ -21,28 +43,6 @@
     <button @click="toggle">toggle</button>
   </div>
 </template>
-
-<script setup lang="ts">
-import { useTodo } from './useTodo'
-import { useMouse } from '../../utils/useMouse'
-import { useFavicon } from '../../utils/useFavicon'
-import { useFullscreen } from '@vueuse/core'
-
-// 表单
-let { text, todos, addTodo, clear, active, all, allDone } = useTodo()
-
-// 鼠标事件 + 颜色转换
-let { x, y, color } = useMouse()
-
-// 页面图标事件
-let { favicon, reset } = useFavicon()
-function changeIcon() {
-  favicon.value = './company.png'
-}
-
-// 全屏事件
-const { isFullscreen, enter, exit, toggle } = useFullscreen()
-</script>
 
 <style scoped>
 h1 {

@@ -1,6 +1,6 @@
-const Koa = require('koa')
 const fs = require('fs')
 const path = require('path')
+const Koa = require('koa')
 const compilerSFC = require('@vue/compiler-sfc')
 const compilerDOM = require('@vue/compiler-dom')
 
@@ -13,7 +13,8 @@ app.use(async ctx => {
     const filePath = path.resolve(__dirname, './index.html')
     const content = fs.readFileSync(filePath, 'utf-8')
     ctx.body = content
-  } else if (url.endsWith('.js')) {
+  }
+  else if (url.endsWith('.js')) {
     // 响应 js 请求，解析出文件路径
     const filePath = path.join(__dirname, url)
     ctx.type = 'text/javascript'
@@ -21,19 +22,21 @@ app.use(async ctx => {
     const file = rewriteImport(fs.readFileSync(filePath, 'utf-8'))
     // 发送内容
     ctx.body = file
-  } else if (url.startsWith('/@modules/')) {
+  }
+  else if (url.startsWith('/@modules/')) {
     // 获取模块路径中 @modules 后面的部分
     const moduleName = url.replace('/@modules/', '')
     const prefix = path.join(__dirname, '../node_modules', moduleName)
     // 要加载文件的地址
-    const module = require(prefix + '/package.json').module
+    const module = require(`${prefix}/package.json`).module
     const filePath = path.join(prefix, module)
     // 加载出来的 js 代码
     const res = fs.readFileSync(filePath, 'utf-8')
     ctx.type = 'text/javascript'
     // 发送内容
     ctx.body = rewriteImport(res)
-  } else if (url.indexOf('.vue') > -1) {
+  }
+  else if (url.includes('.vue')) {
     // 读取 vue 文件内容
     const filePath = path.join(__dirname, url.split('?')[0])
     // compilerSFC 解析 SFC 文件，获得 AST
@@ -54,26 +57,28 @@ app.use(async ctx => {
         __script.render = __render
         export default __script
       `
-    } else if (query.type && query.type === 'template') {
+    }
+    else if (query.type && query.type === 'template') {
       const tpl = res.descriptor.template.content
       // 编译为 render 的一个模块
       const render = compilerDOM.compile(tpl, { mode: 'module' }).code
       ctx.type = 'text/javascript'
       ctx.body = rewriteImport(render)
     }
-  } else if (url.endsWith('.png')) {
-    ctx.body = fs.readFileSync('src' + url)
+  }
+  else if (url.endsWith('.png')) {
+    ctx.body = fs.readFileSync(`src${url}`)
   }
 })
 
 function rewriteImport(content) {
-  return content.replace(/ from ['"](.*)['"]/g, function (s0, s1) {
+  return content.replace(/ from ['"](.*)['"]/g, (s0, s1) => {
     // s0: 匹配的字符串 s1: 分组内容
-    if (s1.startsWith('.') || s1.startsWith('./') || s1.startsWith('../')) {
+    if (s1.startsWith('.') || s1.startsWith('./') || s1.startsWith('../'))
       return s0
-    } else {
+
+    else
       return ` from '/@modules/${s1}'`
-    }
   })
 }
 

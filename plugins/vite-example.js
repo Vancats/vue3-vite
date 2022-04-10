@@ -1,4 +1,4 @@
-export default function (options) {
+export default function () {
   return {
     name: 'example',
     resolveId(source) {
@@ -10,10 +10,10 @@ export default function (options) {
       return null
     },
     load(id) {
-      if (id === 'my-example') {
-        return `export default "this is my example"`
-      }
+      if (id === 'my-example')
+        return 'export default "this is my example"'
+
       return null
-    }
+    },
   }
 }

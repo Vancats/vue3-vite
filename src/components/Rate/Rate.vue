@@ -1,29 +1,16 @@
-<template>
-  <div :style="fontStyle">
-    <!-- 插槽 -->
-    <slot></slot>
-    <div class="rate" @mouseout="mouseOut">
-      <span v-for="num in 5" :key="num" @mouseover="mouseOver(num)">☆</span>
-      <span class="hollow" :style="fontWidth">
-        <span v-for="num in 5" :key="num" @click="onRate(num)" @mouseover="mouseOver(num)">★</span>
-      </span>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 
-let props = defineProps({
+const props = defineProps({
   // 注意传参名称
   modelValue: {
     type: Number,
-    default: 1
+    default: 1,
   },
   theme: {
     type: String,
-    default: 'orange'
-  }
+    default: 'orange',
+  },
 })
 
 // 主题颜色
@@ -34,14 +21,14 @@ const themeObj = {
   orange: '#fa541c',
   yellow: '#fadb14',
   green: '#73d13d',
-  blue: '#40a9ff'
+  blue: '#40a9ff',
 }
 const fontStyle = computed(() => {
   return `color: ${themeObj[props.theme]}`
 })
 
 // 评分宽度
-let width = ref(props.modelValue)
+const width = ref(props.modelValue)
 const fontWidth = computed(() => `width: ${width.value * 13.06}px`)
 
 // 滑动显示评分宽度
@@ -53,11 +40,24 @@ function mouseOut() {
 }
 
 // 点击改变星级
-let emits = defineEmits(['update:modelValue'])
+const emits = defineEmits(['update:modelValue'])
 function onRate(num) {
   emits('update:modelValue', num)
 }
 </script>
+
+<template>
+  <div :style="fontStyle">
+    <!-- 插槽 -->
+    <slot />
+    <div class="rate" @mouseout="mouseOut">
+      <span v-for="num in 5" :key="num" @mouseover="mouseOver(num)">☆</span>
+      <span class="hollow" :style="fontWidth">
+        <span v-for="num in 5" :key="num" @click="onRate(num)" @mouseover="mouseOver(num)">★</span>
+      </span>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .rate {

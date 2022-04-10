@@ -6,7 +6,7 @@ export default {
       }`
     }
     return null
-  }
+  },
 }
 
 // Vite 按照以下顺序调用钩子

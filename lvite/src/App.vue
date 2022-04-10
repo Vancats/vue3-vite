@@ -1,8 +1,3 @@
-<template>
-  <div>{{ title }}</div>
-  <img src="./assets/logo.png" alt="logo" />
-</template>
-
 <script>
 import { ref } from 'vue'
 export default {
@@ -14,10 +9,15 @@ export default {
     }, 500)
 
     return {
-      title
+      title,
     }
-  }
+  },
 }
 </script>
+
+<template>
+  <div>{{ title }}</div>
+  <img src="./assets/logo.png" alt="logo" />
+</template>
 
 <style lang="scss" scoped></style>
