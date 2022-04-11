@@ -1,5 +1,5 @@
 {
-  "extends": "@antfu",
+  "extends": "@vancats",
   "rules": {
     "no-console": "off",
     "arrow-parens": "off",
