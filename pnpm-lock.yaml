@@ -3,7 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@babel/preset-env': ^7.16.11
   '@babel/preset-typescript': ^7.16.7
-  '@vancats/eslint-config-vue': ^0.0.4
+  '@vancats/eslint-config-vue': ^0.0.5
   '@vitejs/plugin-vue': ^2.2.0
   '@vuedx/typescript-plugin-vue': ^0.7.4
   autoprefixer: ^10.4.2
@@ -28,7 +28,7 @@ dependencies:
 devDependencies:
   '@babel/preset-env': 7.16.11
   '@babel/preset-typescript': 7.16.7
-  '@vancats/eslint-config-vue': 0.0.4_eslint@8.13.0+typescript@4.6.2
+  '@vancats/eslint-config-vue': 0.0.5_eslint@8.13.0+typescript@4.6.2
   '@vitejs/plugin-vue': 2.3.1_vite@2.9.1+vue@3.2.31
   '@vuedx/typescript-plugin-vue': 0.7.4
   autoprefixer: 10.4.4
@@ -1563,8 +1563,8 @@ packages:
       - supports-color
     dev: true
 
-  /@vancats/eslint-config-ts/0.0.4_eslint@8.13.0+typescript@4.6.2:
-    resolution: {integrity: sha512-ZKvtFUGM1EA/nEQlaPy0mg2waevWzvIj0t4+7Dgl9tJw+NuJ2lmjCjynJ6KtSVqyZVio9a4ULeEo9CDBLNLthg==}
+  /@vancats/eslint-config-ts/0.0.5_eslint@8.13.0+typescript@4.6.2:
+    resolution: {integrity: sha512-/Q8C/pq1f4A3/7ErJBH2tUAUV+0Y9CjvXRKGlD+qnW5L1KZiRodt1vtWMWkGqJ10aBS70RC2bgMrVRV+XczW5A==}
     peerDependencies:
       eslint: '>=7.4.0'
       typescript: '>=3.9'
@@ -1578,12 +1578,12 @@ packages:
       - supports-color
     dev: true
 
-  /@vancats/eslint-config-vue/0.0.4_eslint@8.13.0+typescript@4.6.2:
-    resolution: {integrity: sha512-7sDDoqrY5rMvQs0n+ezDBAAjT7Fj4gA1XXlF5YYvsLpjyI+qC2Dp1SyhQ0hzlVLiGsIKO6BHxWKpUiU/efl57g==}
+  /@vancats/eslint-config-vue/0.0.5_eslint@8.13.0+typescript@4.6.2:
+    resolution: {integrity: sha512-5MRH+FyZztcFNuhTAYRQgYdVHVQ84hrcO74hc1QpoP20N0IHIvUHW+ROYTbrvo1Z49vwk2jsvFPJJwVxM9M44g==}
     peerDependencies:
       eslint: '>=7.4.0'
     dependencies:
-      '@vancats/eslint-config-ts': 0.0.4_eslint@8.13.0+typescript@4.6.2
+      '@vancats/eslint-config-ts': 0.0.5_eslint@8.13.0+typescript@4.6.2
       eslint: 8.13.0
       eslint-plugin-vue: 8.6.0_eslint@8.13.0
     transitivePeerDependencies:

@@ -9,15 +9,18 @@
     "lint": "eslint --ext .ts,vue src/** --no-error-on-unmatched-pattern",
     "lint:fix": "eslint --ext .ts,vue src/** --no-error-on-unmatched-pattern --fix"
   },
+  "lint-staged": {
+    "*.{js,vue}": "eslint --fix"
+  },
   "dependencies": {
     "koa": "^2.13.4",
     "mockjs": "^1.1.0",
     "vue": "^3.2.31"
   },
   "devDependencies": {
-    "@vancats/eslint-config-vue": "^0.0.4",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-typescript": "^7.16.7",
+    "@vancats/eslint-config-vue": "^0.0.5",
     "@vitejs/plugin-vue": "^2.2.0",
     "@vuedx/typescript-plugin-vue": "^0.7.4",
     "autoprefixer": "^10.4.2",
@@ -33,8 +36,5 @@
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,vue}": "eslint --fix"
   }
 }
