@@ -3,7 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@babel/preset-env': ^7.16.11
   '@babel/preset-typescript': ^7.16.7
-  '@vancats/eslint-config': ^0.0.4
+  '@vancats/eslint-config': ^0.0.5
   '@vitejs/plugin-vue': ^2.2.0
   '@vitejs/plugin-vue-jsx': ^1.2.0
   '@vueuse/core': ^8.1.2
@@ -33,7 +33,7 @@ dependencies:
 devDependencies:
   '@babel/preset-env': 7.16.11
   '@babel/preset-typescript': 7.16.7
-  '@vancats/eslint-config': 0.0.4_eslint@8.13.0+typescript@4.1.5
+  '@vancats/eslint-config': 0.0.5_eslint@8.13.0+typescript@4.1.5
   '@vitejs/plugin-vue': 2.3.1_vite@2.9.1+vue@3.2.31
   '@vitejs/plugin-vue-jsx': 1.3.9
   autoprefixer: 10.4.4
@@ -1641,12 +1641,12 @@ packages:
       - supports-color
     dev: true
 
-  /@vancats/eslint-config-react/0.0.4_eslint@8.13.0+typescript@4.1.5:
-    resolution: {integrity: sha512-3XiVZyhLmizBWImDZKqIJKglI12aRMr4/pydVEreOgo6Y+8G94vIb4Vt3r2djkwjGKQQr8ocOvW+3WvX4GDMXw==}
+  /@vancats/eslint-config-react/0.0.5_eslint@8.13.0+typescript@4.1.5:
+    resolution: {integrity: sha512-9wv+wHX86u+axyyAhH/9/KFYJDLKgJhtzGQqtHL/CaUy7Bm4n7lGjTAGRfvDP2P2SrbSKDW3j8eyEVpJsKCpeA==}
     peerDependencies:
       eslint: '>=7.4.0'
     dependencies:
-      '@vancats/eslint-config-ts': 0.0.4_eslint@8.13.0+typescript@4.1.5
+      '@vancats/eslint-config-ts': 0.0.5_eslint@8.13.0+typescript@4.1.5
       eslint: 8.13.0
       eslint-plugin-react: 7.29.4_eslint@8.13.0
     transitivePeerDependencies:
@@ -1654,8 +1654,8 @@ packages:
       - typescript
     dev: true
 
-  /@vancats/eslint-config-ts/0.0.4_eslint@8.13.0+typescript@4.1.5:
-    resolution: {integrity: sha512-ZKvtFUGM1EA/nEQlaPy0mg2waevWzvIj0t4+7Dgl9tJw+NuJ2lmjCjynJ6KtSVqyZVio9a4ULeEo9CDBLNLthg==}
+  /@vancats/eslint-config-ts/0.0.5_eslint@8.13.0+typescript@4.1.5:
+    resolution: {integrity: sha512-/Q8C/pq1f4A3/7ErJBH2tUAUV+0Y9CjvXRKGlD+qnW5L1KZiRodt1vtWMWkGqJ10aBS70RC2bgMrVRV+XczW5A==}
     peerDependencies:
       eslint: '>=7.4.0'
       typescript: '>=3.9'
@@ -1669,12 +1669,12 @@ packages:
       - supports-color
     dev: true
 
-  /@vancats/eslint-config-vue/0.0.4_eslint@8.13.0+typescript@4.1.5:
-    resolution: {integrity: sha512-7sDDoqrY5rMvQs0n+ezDBAAjT7Fj4gA1XXlF5YYvsLpjyI+qC2Dp1SyhQ0hzlVLiGsIKO6BHxWKpUiU/efl57g==}
+  /@vancats/eslint-config-vue/0.0.5_eslint@8.13.0+typescript@4.1.5:
+    resolution: {integrity: sha512-5MRH+FyZztcFNuhTAYRQgYdVHVQ84hrcO74hc1QpoP20N0IHIvUHW+ROYTbrvo1Z49vwk2jsvFPJJwVxM9M44g==}
     peerDependencies:
       eslint: '>=7.4.0'
     dependencies:
-      '@vancats/eslint-config-ts': 0.0.4_eslint@8.13.0+typescript@4.1.5
+      '@vancats/eslint-config-ts': 0.0.5_eslint@8.13.0+typescript@4.1.5
       eslint: 8.13.0
       eslint-plugin-vue: 8.6.0_eslint@8.13.0
     transitivePeerDependencies:
@@ -1682,15 +1682,15 @@ packages:
       - typescript
     dev: true
 
-  /@vancats/eslint-config/0.0.4_eslint@8.13.0+typescript@4.1.5:
-    resolution: {integrity: sha512-G+Gpo82quDjbNQC9SSB9UMipcIc9AJKBzLUeExfDFomwlp3Mt9s6d8xDSpNravyEnyuUf3/06IE5MIO9RVq3IQ==}
+  /@vancats/eslint-config/0.0.5_eslint@8.13.0+typescript@4.1.5:
+    resolution: {integrity: sha512-gFx/68a+i+8viiM+1jdm0Yzh949r6QZEEMSaB+YEUnd/U1TDA4WHS1JpfmSIS99s8nDjUvKSPlwR95LzgsT+xg==}
     peerDependencies:
       eslint: '>=7.4.0'
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.18.0_e9b748ae8c05617195fc7c86a37dd4fd
       '@typescript-eslint/parser': 5.18.0_eslint@8.13.0+typescript@4.1.5
-      '@vancats/eslint-config-react': 0.0.4_eslint@8.13.0+typescript@4.1.5
-      '@vancats/eslint-config-vue': 0.0.4_eslint@8.13.0+typescript@4.1.5
+      '@vancats/eslint-config-react': 0.0.5_eslint@8.13.0+typescript@4.1.5
+      '@vancats/eslint-config-vue': 0.0.5_eslint@8.13.0+typescript@4.1.5
       eslint: 8.13.0
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.13.0
       eslint-plugin-html: 6.2.0
