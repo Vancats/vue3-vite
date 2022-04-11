@@ -9,7 +9,7 @@
     "lint:fix": "eslint --ext .ts,vue src/** --no-error-on-unmatched-pattern --quiet --fix"
   },
   "dependencies": {
-    "@vueuse/core": "^6.7.4",
+    "@vueuse/core": "^8.1.2",
     "koa": "^2.13.4",
     "mockjs": "^1.1.0",
     "vue": "^3.2.16",
@@ -17,7 +17,7 @@
     "vuex": "^4.0.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.20.2",
+    "@vancats/eslint-config": "^0.0.4",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-typescript": "^7.16.7",
     "@vitejs/plugin-vue": "^2.2.0",

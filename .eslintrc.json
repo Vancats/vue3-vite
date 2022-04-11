@@ -1,9 +1,6 @@
 {
-  "extends": "@antfu",
+  "extends": "@vancats",
   "rules": {
-    "no-console": "off",
-    "arrow-parens": "off",
-    "space-before-function-paren": "off",
-    "react/display-name": "off"
+    "no-console": "off"
   }
 }
