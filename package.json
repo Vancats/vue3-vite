@@ -15,7 +15,7 @@
     "vue": "^3.2.31"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.20.2",
+    "@vancats/eslint-config-vue": "^0.0.4",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-typescript": "^7.16.7",
     "@vitejs/plugin-vue": "^2.2.0",
